@@ -24,7 +24,9 @@ class ForumRepo
     public function saveAll($forums)
     {
         // crée le répertoire si ce n'est pas déjà fait
-        mkdir(dirname(static::$file), 0777, true);
+        if (file_exists(static::$file) === false) {
+            mkdir(dirname(static::$file), 0777, true);
+        }
         
         // et stocke les données sérialisées
         file_put_contents(static::$file, serialize($forums));
