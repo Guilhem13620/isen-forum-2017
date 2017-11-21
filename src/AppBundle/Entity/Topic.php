@@ -2,16 +2,15 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Forum
+ * Topic
  *
- * @ORM\Table(name="forum")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ForumRepository")
+ * @ORM\Table(name="topic")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TopicRepository")
  */
-class Forum
+class Topic
 {
     /**
      * @var int
@@ -30,19 +29,20 @@ class Forum
     private $title;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="creation", type="datetimetz")
      */
-    private $description;
+    private $creation;
 
     /**
-     * @var Collection
+     * @var string
      *
-     * @ORM\OneToMany(targetEntity="Topic", mappedBy="forum")
+     * @ORM\Column(name="author", type="string", length=255)
      */
-    private $topics;
-    
+    private $author;
+
+
     /**
      * Get id
      *
@@ -58,7 +58,7 @@ class Forum
      *
      * @param string $title
      *
-     * @return Forum
+     * @return Topic
      */
     public function setTitle($title)
     {
@@ -78,27 +78,51 @@ class Forum
     }
 
     /**
-     * Set description
+     * Set creation
      *
-     * @param string $description
+     * @param \DateTime $creation
      *
-     * @return Forum
+     * @return Topic
      */
-    public function setDescription($description)
+    public function setCreation($creation)
     {
-        $this->description = $description;
+        $this->creation = $creation;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get creation
+     *
+     * @return \DateTime
+     */
+    public function getCreation()
+    {
+        return $this->creation;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     *
+     * @return Topic
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
      *
      * @return string
      */
-    public function getDescription()
+    public function getAuthor()
     {
-        return $this->description;
+        return $this->author;
     }
 }
 

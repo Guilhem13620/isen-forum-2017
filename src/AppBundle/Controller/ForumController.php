@@ -64,8 +64,11 @@ class ForumController extends Controller
         $service = new ForumRepo();
         $service->addPost($idForum,$postName);
 
-        return $this->render('AppBundle:ForumController:index.html.twig', array(
-            'post' => $service->getAll()
+
+
+
+        return $this->render('AppBundle:ForumController:indexPost.html.twig', array(
+            'forums' => $service->get($idForum),"id_forum" => $idForum
         ));
     }
 
