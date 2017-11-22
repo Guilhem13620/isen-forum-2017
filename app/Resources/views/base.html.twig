@@ -5,9 +5,51 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <!--<link rel="icon" href="/var/www/html/cloud/Vues/cloud2.png"/> -->
+        <link rel="icon" href="https://www.iconfinder.com/data/icons/seo-web-21/64/y-10-512.png"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            function setActive() {
+                var aObj = document.getElementById('nav').getElementsByTagName('a');
+                for (var i = 0; i < aObj.length; i++) {
+                    if (document.baseURI.indexOf(aObj[i].href) >= 0) {
+                        aObj[i].parentNode.className = 'active';
+                    }
+                }
+            }
+            jQuery(document).ready(setActive);
+
+            $(".button-collapse").sideNav();
+
+
+        </script>
+        <?php
+if (isset($select))
+{
+?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+            $(document).ready(function () {
+                $('.materialboxed').materialbox();
+            });
+        </script>
     </body>
 </html>

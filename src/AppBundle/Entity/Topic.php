@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +43,15 @@ class Topic
      */
     private $author;
 
+
+    /**
+     * @var Forum
+     *
+     * @ORM\ManyToOne(targetEntity="Forum", inversedBy="topics")
+     * @ORM\JoinColumn(name="forum_id", referencedColumnName="id")
+     */
+
+    private $forum;
 
     /**
      * Get id

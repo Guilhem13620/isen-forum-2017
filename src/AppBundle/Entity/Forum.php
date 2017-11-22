@@ -42,7 +42,7 @@ class Forum
      * @ORM\OneToMany(targetEntity="Topic", mappedBy="forum")
      */
     private $topics;
-    
+
     /**
      * Get id
      *
