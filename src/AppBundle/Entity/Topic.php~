@@ -134,28 +134,5 @@ class Topic
     {
         return $this->author;
     }
-
-    /**
-     * Set forum
-     *
-     * @param \AppBundle\Entity\Forum $forum
-     *
-     * @return Topic
-     */
-    public function setForum(\AppBundle\Entity\Forum $forum = null)
-    {
-        $this->forum = $forum;
-
-        return $this;
-    }
-
-    /**
-     * Get forum
-     *
-     * @return \AppBundle\Entity\Forum
-     */
-    public function getForum()
-    {
-        return $this->forum;
-    }
 }
+
