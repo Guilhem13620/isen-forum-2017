@@ -49,7 +49,7 @@ class ForumController extends Controller
     /**
      * @Route("/{id}",requirements={"id": "\d+"}, name="app_forum_show")
      */
-    public function showAction($id)
+    public function showAction(int $id)
     {
         return $this->render('AppBundle:Forum:show.html.twig', array(
             'forum' =>$this->getDoctrine()->getRepository(Forum::class)->find($id)

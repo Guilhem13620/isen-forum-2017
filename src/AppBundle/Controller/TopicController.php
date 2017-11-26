@@ -35,11 +35,11 @@ class TopicController extends Controller
             $topic->setTitle($request->get('title'));
             $topic->setAuthor($request->get('author'));
             $topic->setCreation(new \DateTime());
-            $topic->setTitle($forum);
+            $topic->setForum($forum);
 
             $em = $this->getDoctrine()->getManager();
 
-            $em->persist($forum);
+            $em->persist($topic);
 
             $em->flush();
 
